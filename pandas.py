@@ -55,3 +55,32 @@ data.dtypes
 data.duration.astype(float)
 data.duration = data.duration.astype(float)
 data.dtypes
+
+# Real Example
+data = pd.read_table('http://bit.ly/chiporders')
+data.dtypes
+data.item_price
+data.item_price.str.replace('$','').astype(float)
+data.item_price.str.replace('$','').astype(float).mean()
+data.item_name.str.contains('and').head(10)
+data.item_name.str.contains('and').head(10).astype(int)
+
+# Review on Pandas
+import pandas as pd
+data = ['BMW','Toyota','Mercedez','Mitshubishi']
+df   = pd.DataFrame(data)
+df   = pd.DataFrame(data, index=['Brand_001','Brand_002','Brand_003','Brand_004'])
+df   = pd.DataFrame(data, index=['Brand_001','Brand_002','Brand_003','Brand_004'], columns=['Car Model'])
+print(df)
+
+data = [ ['Apple', 135], ['Orange', 143], ['Mango', 145]]
+df   = pd.DataFrame(data)
+df   = pd.DataFrame(data, columns=['Food','Price'])
+df   = pd.DataFrame(data, columns=['Food','Price'], index=['Item_001','Item_002','Item_003'])
+print(df)
+
+data = {'Food' :['Apple','Mango','Orange'], 
+		'Price':[124,150,175]}
+df   = pd.DataFrame(data)
+df   = pd.DataFrame(data, index=['ID_001','ID_002','ID_003'])
+print(df)
