@@ -29,3 +29,29 @@ type(data['Age'])
 data.Age
 data.new    = data.Profession + data.Gender
 data['new'] = data.Profession + data.Gender
+
+# Data Aquisition
+data = pd.read_csv('http://bit.ly/imdbratings')
+data = pd.read_csv('http://bit.ly/imdbratings', usecols=['title','genre','duration'])
+data = pd.read_csv('http://bit.ly/imdbratings', usecols=['title','genre','duration'], nrows = 30)
+data[(data.genre == 'Crime') | (data.genre == 'Drama') | (data.genre == 'Action')]
+data[data.genre.isin(['Crime','Drama','Action'])]
+data[(data.content_rating == 'R') & (data.genre == 'Crime')]
+(data.content_rating == 'R') & (data.genre == 'Crime')
+data[data.genre == 'Crime']
+data[data.genre == 'Action']
+data[data.genre == 'Drama']
+data.describe()
+data.mean()
+data.duration.describe()
+data.genre.str.upper()
+data.genre.str.lower()
+data.title.str.upper()
+
+# Data Type Changing Mechanism
+data = pd.read_csv('http://bit.ly/imdbratings')
+data = pd.read_csv('http://bit.ly/imdbratings', dtype= {'duration':float})
+data.dtypes
+data.duration.astype(float)
+data.duration = data.duration.astype(float)
+data.dtypes
