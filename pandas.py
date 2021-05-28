@@ -84,3 +84,44 @@ data = {'Food' :['Apple','Mango','Orange'],
 df   = pd.DataFrame(data)
 df   = pd.DataFrame(data, index=['ID_001','ID_002','ID_003'])
 print(df)
+
+data = pd.read_csv('http://bit.ly/imdbratings')
+data.head()
+data.duration.describe()
+%matplotlib inline
+data.duration.plot(kind='hist')
+data.duration.plot(kind='bar')
+
+data.genre
+data.genre.value_counts()
+data.genre.value_counts().plot(kind='bar')
+
+# Dealing with Missing Data
+data = pd.read_csv('http://bit.ly/uforeports')
+data.head(10)
+data.isnull()
+data.notnull()
+data.isnull().sum()
+data.isnull().head()	
+data.City.isnull().sum()
+
+# Dealing with Data Indexing
+data = pd.read_csv('http://bit.ly/uforeports')
+data.head()
+data.columns
+data.index
+data.shape
+data.loc[5,'City']
+data.set_index('City', inplace=True)
+data.State == 'NY'
+data[data.State == 'NY']
+data[data.State == 'NY'].describe()
+
+# Column Index
+data = pd.read_csv('http://bit.ly/uforeports')
+data.set_index('City', inplace=True)
+data.reset_index(inplace=True)
+data.describe()
+data.describe().index
+data.describe().columns
+data.describe().loc['freq','State']
