@@ -125,3 +125,6 @@ data.describe()
 data.describe().index
 data.describe().columns
 data.describe().loc['freq','State']
+
+drinks = pd.read_csv('http://bit.ly/drinksbycountry')
+drinks = pd.read_csv('http://bit.ly/drinksbycountry', index_col = 'country')
